@@ -1,0 +1,21 @@
+{% extends 'profil/base.html'%}
+
+{% block content %}
+{% include 'profil/__nav.html' %}
+<div class="container-fluid">
+  <center> <h3 class=" center-align"> {{ post.title}} </h3></center>
+  <center> <h6 class=" center-align">publish : {{ post.publish}} </h6></center> </br>
+
+  <div class="row">
+      <div class="col s12 m2 l2 xl2"></div>
+      <div class="col s12 m10 l10 xl10">
+        {% if post.gambar%}
+          <img class=" responsive-img" src='{{ post.gambar.url}}' ,height="600px", height="650px">
+        {% endif %}
+        {{post.content}} </p>
+        <button onclick="window.location='{% url 'profils:beritasekolah' %}' " class="btn btn-dark"> Go Back </button>
+      </div>
+  </div>
+</div>
+{% include 'profil/__footer_copyright.html' %}
+{% endblock  %}

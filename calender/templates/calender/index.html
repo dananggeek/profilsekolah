@@ -1,0 +1,41 @@
+{% extends 'profil/base.html'%}
+
+{% block content %}
+{% include 'profil/__nav.html' %}
+
+ <div class="container">
+  <div class="row">
+    <form action="/calender" method="GET">
+      <div class="input-field col s6">
+        <input placeholder="cari nama calender acara" id='search' type="text" name="search" value='{{ request.GET.search}}'>
+        <label for="search"> search  </label>
+        <button type="submit" class="btn black"> submit</button>
+      </div>
+    </form>
+  </div>
+   <div class="row">
+    {% for list in list %}
+      {% include 'calender/__calender_content.html'%}
+     {% endfor %}
+   </div>
+   <div class="paginator">
+     {% if list.has_previous %}
+         <a href="?halaman={{ list.previous_page_number }}
+           {% if request.GET.serach %}
+             &search = {{ request.GET.search }}
+            {% endif %} ">Preview</a>
+     {% endif %}
+     <span class="current">
+        Page {{ list.number }} of {{ list.paginator.num_pages }}
+     </span>
+     {% if post.has_next %}
+         <a href="?halaman={{ post.next_page_number }}
+         {% if request.GET.search %}
+           &search={{ request.GET.search }}
+         {% endif%}">next</a>
+     {% endif %}
+   </div>
+ </div>
+ <p></p><p></p>
+ {% include 'profil/__footer_copyright.html' %}
+{% endblock %}

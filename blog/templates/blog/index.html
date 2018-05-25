@@ -1,0 +1,53 @@
+{% extends 'profil/base.html'%}
+
+{% block content %}
+{% include 'profil/__nav.html' %}
+
+<div class="container">
+  <div class="row">
+    <div class="input-field col s6"></div>
+    <form action="/ " method="GET">
+      <div class="input-field col s6">
+        <input placeholder="cari nama calender acara" id='search' type="text" name="search" value='{{ request.GET.search}}'>
+        <label for="search"> search  </label>
+        <button type="submit" class="btn black">  Cari</button>
+      </div>
+    </form>
+  </div>
+  <div class="row">
+    {% if post  %}
+      {% for post in post %}
+        {% include 'blog/__blog_entry_content.html' %}
+      {% endfor %}
+    {% else %}
+      Tidak Ada Berita
+    {% endif  %}
+
+  </div>
+  <!-- Pagination-->
+  <div class="pagination">
+
+        <span class="step-links">
+            {% if post.has_previous %}
+                <a href="?halaman={{ post.previous_page_number }}
+                {% if request.GET.search %}
+                  &search={{ request.GET.search }}
+                {% endif%} ">previous</a>
+            {% endif %}
+            <span class="current">
+                Page {{ post.number }} of {{ post.paginator.num_pages }}.
+            </span>
+            {% if post.has_next %}
+                <a href="?halaman={{ post.next_page_number }}
+                {% if request.GET.search %}
+                  &search={{ request.GET.search }}
+                {% endif%}">next</a>
+            {% endif %}
+        </span>
+
+  </div>
+      <!-- Ahir Pagination -->
+
+</div>
+{% include 'profil/__footer_copyright.html' %}
+{% endblock  %}

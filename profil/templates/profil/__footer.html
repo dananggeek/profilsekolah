@@ -1,0 +1,22 @@
+{% extends 'profil/base.html'%}
+
+{% block content %}
+<div class="row ">
+  <div class=" col s12 m6 l4 xl4 ">
+    <h5 > Alamat </h5>
+    <p class="grey-text text-lighten-4"> {{ about.alamat}} </p>
+  </div>
+
+
+
+  <div class=" col s12 m6 l4 xl4 ">
+    <h5> Contak </h5>
+    <p class="grey-text text-lighten-4"> Email : {{ about.email }} </p>
+    <p class="grey-text text-lighten-4"> No Hp : {{about.nohp }} </p>
+  </div>
+</div>
+<div class="footer-copyright center-align ">
+  <div class="container"> <a class="grey-text text-lighten-3" href="http://github.com/dananggeek">&copy 2018 danang </a></div>
+
+</div>
+{% endblock %}

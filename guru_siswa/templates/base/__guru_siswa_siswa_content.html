@@ -1,0 +1,26 @@
+{% for siswa in siswa %}
+
+<table class="responsive-table">
+
+ <thead>
+   <tr>
+       <th>Kelas</th>
+       <th>Nama</th>
+       <th>No Hp</th>
+       <th>Email</th>
+
+     </tr>
+ </thead>
+
+ <tbody>
+   <tr>
+     <td><a href="{% url 'siswadetail' pk=siswa.id%}">{{siswa.kelas }} </a></td>
+     <td>{{siswa.nama }}</td>
+     <td>{{siswa.no_hp }}</td>
+     <td>{{siswa.email }}</td>
+   </tr>
+
+ </tbody>
+
+</table>
+{% endfor %}

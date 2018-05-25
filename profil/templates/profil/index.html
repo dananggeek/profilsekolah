@@ -1,0 +1,50 @@
+{% extends 'profil/base.html'%}
+{% block content %}
+        <!--JavaScript at end of body for optimized loading-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script type='text/javascript'>
+
+            $(document).ready(function(){
+              $('.sidenav').sidenav();
+            });
+
+            $(document).ready(function(){
+              $('.datepicker').datepicker({ dateFormat: "YYYY-MM-DD" }).val()
+            });
+
+            $(document).ready(function(){
+              $('select').formSelect();
+            });
+        </script>
+      {% include 'profil/__nav.html' %}
+        <div class="container">
+          <div class="row">
+            {% for banner in banner %}
+            <div class="col s12 m6 l6 xl6">
+              <h5 class="center-align"> {{banner.nama}} </h5>
+              {{banner.text}}
+            </div>
+            <div class="col s12 m6 l6 xl6">
+                {% if banner.gambar%}
+                <img class="responsive-img" src="{{ banner.gambar.url}}">
+                {% endif %}
+            </div>
+            {%  endfor %}
+          </div>
+        </div>
+      </br>
+        <div class="container">
+          <p> </p><p> </p>
+          <h4 class=" center-align">Kenapa Harus Sekolah Di Sekolah ABC ?</h4></br>
+          <div class="row">
+            {% for why in whyy  %}
+              {% include 'profil/__entry_why.html' %}
+            {% endfor  %}
+          </div>
+        </div>
+        <footer class="page-footer blue-grey darken-2">
+          {% for about in about %}
+            {% include 'profil/__footer.html' %}
+          {% endfor %}
+        </footer>
+{% endblock  %}

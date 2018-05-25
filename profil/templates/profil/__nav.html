@@ -1,0 +1,63 @@
+{% extends 'profil/base.html'%}
+
+{% block content %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type='text/javascript'>
+
+
+    $(document).ready(function(){
+      $('.sidenav').sidenav();
+    });
+
+    $(document).ready(function(){
+      $('.datepicker').datepicker({ dateFormat: "YYYY-MM-DD" }).val()
+    });
+
+    $(document).ready(function(){
+      $('select').formSelect();
+    });
+</script>
+<nav class="blue-grey darken-3 fixed">
+  <div class="nav-wrapper ">
+    <a href="{% url 'profils:index' %}" class="brand-ldogo bold"> Sekolah ABC </a>
+    <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    <ul class="right hide-on-med-and-down">
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'profils:index' %}">Home <span class="sr-only"></span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href=" {% url 'blogs:index' %} ">blog <span class="sr-only"></span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href=" {% url 'calenders:index' %} ">Calender Sekolah <span class="sr-only"></span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href=" {% url 'add' %} ">Pendaftaran Siswa <span class="sr-only"></span></a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<ul class="sidenav" id="mobile-demo">
+  <li> <a href="{% url 'profils:index' %}">Home </a> </li>
+  <li> <a href=" {% url 'blogs:index' %} ">Berita Sekolah </a> </li>
+  <li> <a href=" {% url 'calenders:index' %} ">Calender Sekolah </a> </li>
+  <li> <a href=" {% url 'add' %} ">Pendaftaran Siswa </a> </li>
+</ul></br>
+{% endblock  %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type='text/javascript'>
+
+
+    $(document).ready(function(){
+      $('.sidenav').sidenav();
+    });
+
+    $(document).ready(function(){
+      $('.datepicker').datepicker({ dateFormat: "YYYY-MM-DD" }).val()
+    });
+
+    $(document).ready(function(){
+      $('select').formSelect();
+    });
+</script>

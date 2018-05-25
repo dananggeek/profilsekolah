@@ -1,0 +1,141 @@
+
+{% extends 'profil/base.html'%}
+
+{%  block content %}
+
+{% include 'profil/__nav.html'%}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type='text/javascript'>
+
+
+    $(document).ready(function(){
+      $('.sidenav').sidenav();
+    });
+
+    $(document).ready(function(){
+      $('.datepicker').datepicker({ dateFormat: "YYYY-MM-DD" }).val()
+    });
+
+    $(document).ready(function(){
+      $('select').formSelect();
+    });
+</script>
+<div class="container form-grub py-5" >
+
+
+  <form method="POST" action="{% url 'add' %}" enctype="multipart/form-data">
+    {%  csrf_token  %}
+
+    <h5> Identitas Diri</h5> </br>
+      <div class="row">
+        <div class="input-field col s6">
+          <input placeholder="Mauskan Nama Depan" id='namadepan' type="text" name="nama_depan" /required>
+          <label for="namadepan"> Nama Depan</label>
+        </div>
+        <div class="input-field col s6">
+          <input placeholder="Masukan Nama Belakang" id='namabelakang' type="text" name="nama_belakang" /required>
+          <label for="namabelakang"> Nama Belakang</label>
+        </div>
+
+        <div class="input-field col s6">
+          <input placeholder="Masukan tempat lahir" id='tempat_lahir' type="text" name="tempat_lahir" /required >
+          <label for="tempat_lahir"> Tempat Lahir</label>
+        </div>
+        <div class="input-field col s6">
+          <input   id='tempat_lahir' type="date"   name="tanggal_lahir" /required>
+          <label for="tempat_lahir"> Tanggal Lahir</label>
+        </div>
+
+        <div class="input-field col s12">
+          <textarea id="icon_prefix2" class="materialize-textarea" name="alamat" /required></textarea>
+          <label for="icon_prefix2">Alamat Tinggal</label>
+        </div>
+
+        <div class="col s6">
+
+          <div class="file-field input-field">
+      <div class="btn   black">
+        <span>File</span>
+        <input type="file"  name='foto' /required>
+      </div>
+      <div class="file-path-wrapper">
+        <input class="file-path validate" type="text" placeholder="Upload Foto Identitas">
+      </div>
+    </div>
+
+
+        </div>
+        <div class=" col s6">
+
+
+          <div class="file-field input-field">
+      <div class="btn black">
+        <span>File</span>
+        <input type="file"   name='nilai_un' /required>
+      </div>
+      <div class="file-path-wrapper">
+        <input class="file-path validate" type="text" placeholder="Upload Foro Nilai Ujian Nasional ">
+      </div>
+    </div>
+
+
+        </div>
+
+
+        <div class="input-field col s6">
+          <input placeholder="Mauskan Nomor Hp" id="nohp" type="number" class="validate" name='nohp' /required>
+          <label for="nohp">Nomor Hp</label>
+        </div>
+        <div class="input-field col s6">
+          <input placeholder="Mauskan Email" id="email" type="email" class="validate" name='email' /required>
+          <label for="email">Email</label>
+        </div>
+
+
+        <div class="input-field col s6">
+          <select name="kelamin" /required>
+            <option value="" disabled selected>Kelamin</option>
+            <option value="Laki-laki"> Laki-laki</option>
+            <option value="Perempuan">Perempuan</option>
+          </select>
+          <label>Pilih Kelamin</label>
+        </div>
+        <div class="input-field col s6">
+          <select name="agama" /required>
+            <option value="" disabled selected>Agama</option>
+            <option value="Islam"> Islam</option>
+            <option value=" Katolil">Katolil </option>
+            <option value="Kristen">Kristen </option>
+            <option value="Hindhu">Hindhu </option>
+            <option value="Budha"> Budha</option>
+          </select>
+          <label>Pilih Agama</label>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <h5> Identitas Orangtua</h5> </br>
+      <div class="row">
+        <div class="input-field col s6">
+          <input placeholder="Mauskan Nama Depan" id='nama_orangtua' type="text" name="nama_orangtua" /required>
+          <label for="nama_orangtua"> Nama Orangtua</label>
+        </div>
+        <div class="input-field col s6">
+            <input id="nohp_orangtua" type="number" class="validate" name='nohp_orangtua' /required>
+            <label for="nohp_orangtua">nohp_orangtua</label>
+            <span class="helper-text" data-error="wrong" data-success="right">Masukan nohp_orangtua</span>
+        </div>
+        <div class="input-field col s12">
+          <textarea id="icon_prefix2" class="materialize-textarea" name="alamat_orangtua" /required></textarea>
+          <label for="icon_prefix2">Alamat Orangtua</label>
+        </div>
+      </div>
+    <button type="submit" class="btn  black "> daftar</button>
+  </form>
+</div>
+</br>
+{% include 'profil/__footer_copyright.html' %}
+
+{%  endblock  %}

@@ -1,0 +1,18 @@
+{% extends 'profil/base.html'%}
+{% block content %}
+{% include 'profil/__nav.html' %}
+<div class="container">
+  <div class="col s12 m6 l8 xl8">
+    <center> <h1 class=" center-align"> {{ detail.judul }} </h1></center>
+    <p class="text-grey"> publish {{ detail.publish}} </p>
+    {{ detail.deskripsi}} </p>
+    {% if detail.gambar%}
+      <img class=" responsive-img" src='{{ detail.gambar.url}}' ,height="600px", height="650px">
+    {% endif %}
+    Berlokasi Di : {{ detail.lokasi}} </p>
+    Jadwal  Acara Mulai : {{ detail.jadwal_acara}} | Sampai Dengan : {{ detail.ahir_acara}}  </p>
+    <button onclick="window.location='{% url 'calenders:index' %}' " class="btn btn-dark"> Go Back </button> <p></p><p></p><p></p>
+  </div>
+</div>
+{% include 'profil/__footer_copyright.html' %}
+{% endblock %}

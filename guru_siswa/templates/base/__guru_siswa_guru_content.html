@@ -1,0 +1,23 @@
+{% for guru in guru %}
+<table>
+    <thead>
+      <tr>
+          <th>nip</th>
+          <th>nama</th>
+          <th>no_hp</th>
+          <th>email</th>
+          <th>alamat</th>
+        </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a href="{% url 'gurudetail' pk=guru.id %}">{{guru.nip}} </a></td>
+
+        <td>{{guru.nama }}</td>
+        <td>{{guru.no_hp }}</td>
+        <td>{{guru.email }}</td>
+        <td>{{guru.alamat }}</td>
+      </tr>
+    </tbody>
+</table>
+{% endfor %}

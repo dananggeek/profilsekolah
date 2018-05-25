@@ -1,0 +1,6 @@
+<div class="col s12 m6 l4 xl4">
+  <h5 > <a href="{% url 'calenders:detail' list.slug %}">{{ list.judul }}</a> </h5>
+  <p class="text-grey"> publish {{ list.publish}} </p>
+  {{ list.deskripsi |truncatechars:200}} </p>
+  <br/>
+</div>
